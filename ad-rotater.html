@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{background-color: #333;
+            color: #fff;}
+        #ad{
+            border: 1px dotted #666;
+            margin-left: 20px;padding-left: 20px;
+        }
+    </style>
+    <title>AD Rotator</title>
+</head>
+<body>
+    <div id="ad"></div>
+    <script>
+        let adTitles=[
+            'the 1 add title',
+            'the 2 add title',
+            'the 3 add title',
+        ]
+        let adText=[
+            'text for title 1',
+            'text for title 2',
+            'text for title 3',
+        ]
+        let adImg=[
+            'https://fastly.picsum.photos/id/361/200/300.jpg?hmac=unS_7uvpA3Q-hJTvI1xNCnlhta-oC6XnWZ4Y11UpjAo',
+            'https://fastly.picsum.photos/id/306/200/300.jpg?hmac=T-FQeWIc7YbLbcYdpyDGypNif0btJ8n5P4ozBJx8WgE',
+            'https://fastly.picsum.photos/id/153/200/300.jpg?hmac=H_AmVmfo0YXYc3J4qq_lRGgrdh9kryFiXE-D7Ozekrg',
+        ]
+        let adIndex=0
+        function showAD(){
+            ad.innerHTML=`<h1>${adTitles[adIndex]}</h1>`
+            ad.innerHTML+=`<img src="${adImg[adIndex]}"/>`
+            ad.innerHTML+=`<p>${adText[adIndex]}</p>`
+        }
+       function rotateAD(){
+        let lastTitle=adTitles.pop()
+        adTitles.unshift(lastTitle)
+        let lastText=adText.pop()
+        adText.unshift(lastText)
+        let lastImg=adImg.pop()
+        adImg.unshift(lastImg)
+        showAD()
+       }
+       setInterval(rotateAD,2000)
+       showAD()
+    </script>
+</body>
+</html>
