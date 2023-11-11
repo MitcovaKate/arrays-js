@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let foodMenu=['Slad','Burger','Pizza']
+        let priceMenu=[75.00,65.00,90.00]
+        let menu =
+        `##################
+               menu:
+        ##################`
+        
+        for(i=0;i<foodMenu.length;i++){
+        menu+=`${i+1}.${foodMenu[i]}\n`
+        }
+        menu+=`choose:`
+        let option = parseInt(prompt(menu) ) - 1
+        let optionDescripsion =`
+        you have chosen "${foodMenu[option]}" 1portion- ${priceMenu[option]}
+        how many do you want?: `
+        let portions = parseInt(prompt(optionDescripsion))
+        let cost = priceMenu[option] * portions
+        let orderDescription = `Your order:
+        "${foodMenu[option]}" : ${portions} x ${foodMenu[portions]} =${cost}`
+        let delivery=confirm('Do you need delivery?' )
+        if(delivery==false){alert('Pick up your order')} 
+        else {cost>=500?alert('Delivery is free') : alert('Delivery +50')}
+
+        alert(orderDescription)
+    </script>
+</body>
+</html>
