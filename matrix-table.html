@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    table, td {
+     border: 1px solid brown;
+}
+    </style>
+    <title>matrix in table</title>
+</head>
+<body>
+    </table>
+    <script>
+        let matrix=[
+            [0,0,0],
+            [1,1,1],
+            [2,2,2],
+ ]
+ html=`<table>`
+for(i=0;i< matrix.length;i++){
+    html+=`<tr></tr>`
+        
+   for(let j = 0; j < matrix[i].length; j++){
+             html+=`<td>${matrix[i][j]}</td>`
+        }    
+        
+} 
+        
+ html+=` </table>`
+document.write(html)
+    </script>
+
+
+</body>
+</html>
