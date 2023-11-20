@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{background-color: #333;}
+    </style>
+    <title>Input Filter</title>
+</head>
+<body>
+    <label >Enter phone number
+        <input type="text" id="phoneInput" onkeyup="inputFilter()" >
+    </label>
+    <script>
+
+    let pattern=["#","#","#","/","2","#","#","#","-","#","#","#","-","#","#",]
+    let filteredValue=[]
+
+
+function inputFilter(){
+    let value= phoneInput.value.split('')
+     filteredValue=[]
+    for(let i=0;i<value.length;i++){
+if(value[i]>='0'&&value[i]<='9' && pattern[i] =='#'){
+filteredValue.push(value[i])
+}else if(value[i]==pattern[i]&&pattern[i] !='#' ){
+    filteredValue.push(value[i])
+} else {break}
+    }
+   console.log(filteredValue)
+  phoneInput.value= filteredValue.join('')
+
+//  v1
+// let removed1 = filteredValue.splice(2, 1);
+// let removed2 = filteredValue.splice(5, 1);   
+// let removed3 = filteredValue.splice(7, 1);
+
+// console.log(filteredValue)
+
+
+// v2
+// let a=0
+// let arr = filteredValue.filter(item => item[a] !='/'&&item[a] !='-')    
+//     console.log(arr)
+
+}
+
+    </script>
+</body>
+</html>
+111/2343-345-45
